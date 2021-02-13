@@ -33,9 +33,9 @@ struct tcb
 
 typedef struct tcb *tcb_t;
 
-static uthread_t tid_idle = 0;
-static queue_t candidates = NULL;
-static tcb_t current_tcb = NULL;
+static uthread_t tid_idle = 0;		// Used to allocate free tid
+static queue_t candidates = NULL;	// The scheduling queue of candidate threads
+static tcb_t current_tcb = NULL;	// Currently working thread
 
 int __is_alive_joined_tcb(queue_t queue, void *data, void *arg)
 {
